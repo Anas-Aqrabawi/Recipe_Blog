@@ -1,0 +1,107 @@
+﻿@model RecipeBlogProject.Models.Person
+
+@{
+    TempData["Title"] = "Edit Profile Page";
+    Layout = "~/views/shared/_UserProfileLayout.cshtml";
+}
+
+<div class="container emp-profile">
+        <div class="row">
+            <div class="col-md-4 mx-auto mt-5">
+                @* <div class="profile-img">
+                <form asp-action="UploadProfilePicture" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input class="form-control" asp-for="ImageFile"  placeholder="upload profile picture"/>
+                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                        </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn--radius-2 btn--blue" />
+                    </div>
+                </form>
+                <img src=@Url.Content("~/Images/profile-iamges" + ViewBag.ProfileImage) width="50px" height="50px" asp-append-version="true" />
+                </div> *@
+                <div class="container ">
+                <div class="row mt-5 mx-5">
+                        <div class="col">
+                        <button type="button" class="btn btn-primary">
+                            <a  asp-controller="Home" asp-action="Index" style="color:white; text-decoration:none;">
+                                Home
+                            </a>
+                       </button>
+                        </div>
+                    
+                    </div>
+               
+                </div>
+             </div>
+            <div class="col-md-6 mx-auto my-auto"> 
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-4">
+                                <div class="card-body">
+                                    <form asp-action="Edit" method="POST">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                       <div class="row row-space mb-3">
+                                           <div class="col">
+                                            <h1>Edit Profile Info</h1>
+                                           </div>
+                                       </div>
+                                    <hr />  
+                                        <div class="row row-space mt-4">
+                                            <div class="col">
+                                            <div class="form-group">
+                                                <label asp-for="Firstname" class="control-label">First Name</label>
+                                                <input asp-for="Firstname" class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                            <div class="form-group">
+                                                <label asp-for="Lastname" class="control-label">Last Name</label>
+                                                <input asp-for="Lastname" class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row row-space">
+                                            <div class="col">
+                                            <div class="form-group">
+                                                <label asp-for="Gender" class="control-label">Gender</label>
+                                                <input asp-for="Gender" class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                            <div class="form-group">
+                                                <label asp-for="Phone" class="control-label">Phone Number</label>
+                                                <input asp-for="Phone" class="form-control" type="tel">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="row row-space">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label asp-for="Email" class="control-label">Email</label>
+                                                <input asp-for="Email" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row row-space">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label asp-for="Password" class="control-label">Password</label>
+                                                <input asp-for="Password" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" asp-for="id" />
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn--radius-2 btn--blue" />
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+        </div>
+</div>

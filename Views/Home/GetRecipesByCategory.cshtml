@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Recipe>
+@{
+    Layout = "~/views/shared/_GetRecipesByCategoryLayout.cshtml";
+}
+
+<section class="pt-5" style="margin-top:7rem;">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section-title">
+                    <h2 class="text-center">Recipes</h2>
+                    <p>Please Enjoy! Buying Ours Recipes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 mb-5">
+                    <div class="card">
+                        <img src=@Url.Content("~/Images/recipes-images/" + item.ImagePath) class="card-img-top" asp-append-version="true"
+                             width="350" height="350">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Receipename</h5>
+                            <h6>ingredients:</h6>
+                            <p class="card-text">@item.Ingredients</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center g-0">
+                                <div class="col">
+                                    <h5 class="mb-0">$@item.Price</h5>
+                                </div>
+
+                                <div class="col-auto">
+                                    <a asp-action="CheckUserCardInfo" asp-route-id="@item.id" class="btn btn-secondary" style="border:3px solid #cda45e; color:White;  background-color:black; padding:8px 25px; text-transform:uppercase; font-size:13px; font-weight:500; letter-spacing:1px; transition:0.3s;">
+                                        Buy Recipe
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,108 @@
+﻿@model RecipeBlogProject.Models.Visacard
+
+@{
+    Layout = "~/views/shared/_CreateVisaCardLayout.cshtml";
+}
+
+<div style="margin-top:10rem; margin-bottom:5rem;">
+    <div class="container">
+    <div class="row mb-5">
+        <div class="col">
+            <div class="section-title p-0 text-start">
+                <h2 class="text-start">Recipe Payment</h2>
+                <p>Buy Recipe</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container d-lg-flex flex-row">
+    
+    <div class="box-1 bg-light user" style="color:black;"> 
+        <div class="box-inner-1 pb-3 mb-3 mt-4"> 
+            <div class="d-flex justify-content-between mb-3 userdetails"> 
+                <p class="fw-bold">Minimal Icons by Oliur</p> 
+                <p class="fw-lighter"><span class="fas fa-dollar-sign"></span>$19.00</p> 
+            </div> 
+            <div id="my" class="carousel slide carousel-fade img-details" data-bs-ride="carousel" data-bs-interval="2000"> 
+                <div class="carousel-indicators"> 
+                    <button type="button" data-bs-target="#my" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#my" data-bs-slide-to="1" aria-label="Slide 2"></button> 
+                    <button type="button" data-bs-target="#my" data-bs-slide-to="2" aria-label="Slide 3"></button> 
+                </div> 
+                <div class="carousel-inner"> 
+                    <div class="carousel-item active"> 
+                        <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="d-block w-100"> 
+                    </div> 
+                </div> 
+            </div> 
+                    <p class="dis my-3 info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quos ipsa sed officiis odio libero consectetur placeat dignissimos et ab dolorum, nemo id provident quidem modi, dolorem dolores quas quasi. </p> 
+        </div> 
+    </div> 
+                    <div class="box-2 p-3" style="background-color:white; color:black;"> 
+                        <div class="box-inner-2"> 
+                            <div> 
+                                <p class="fw-bold">Payment Details</p> 
+                                <p class="dis mb-3">Complete your purchase by providing your payment details</p> 
+                            </div>
+                                 <form asp-action="CreateVisaCard" method="POST">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="container">
+                                        <p class="dis fw-bold mb-2">Card details</p>
+                                    <div class="d-flex">
+                                       <div class="form-group form-input me-3 w-30">
+                                           <input asp-for="Firstname" class="form-control" placeholder="First Name">
+                                           <span asp-validation-for="Firstname" class="text-danger"></span>
+                                       </div>
+                                       <div class="form-group form-input me-3">
+                                           <input asp-for="Lastname" class="form-control" placeholder="Last Name">
+                                           <span asp-validation-for="Lastname" class="text-danger"></span>
+                                       </div>
+                                    </div>
+                                        <br />
+                                         <div class="d-flex align-items-center justify-content-between card-atm border rounded">
+                                             <div class="form-group form-control">
+                                                 <input asp-for="Cardnumber" class="form-control" placeholder="Card Number">
+                                                 <span asp-validation-for="Cardnumber" class="text-danger"></span>
+                                             </div>
+                                            
+                                            <div class="form-group form-input d-flex w-50">
+                                               <input asp-for="Cvv" type="password" maxlength=3 class="form-control" placeholder="CVV">
+                                               <span asp-validation-for="Cvv" class="text-danger"></span>
+                                             </div>
+                                        </div>
+                                        <br/>
+                                         <div class="d-flex">
+                                             <div class="form-group form-input me-3 w-30">
+                                                <input asp-for="Expirydate"  type="month"   class="form-control" placeholder="Expiry Date">
+                                                <span asp-validation-for="Expirydate" class="text-danger"></span>
+                                             </div>
+                                             <div class="form-group form-input me-3">
+                                                <input asp-for=Pin type="password" maxlength=4 class="form-control" placeholder="PIN">
+                                                <span asp-validation-for="Pin" class="text-danger"></span>
+                                             </div>
+                                         </div>
+                                         <br />
+                                         <hr />
+                                        <div class="address"> 
+                                                    <div class="d-flex flex-column dis"> 
+                                                        <div class="d-flex align-items-center justify-content-between mb-2"> 
+                                                            <p class="fw-bold">Total</p> 
+                                                            <p class="fw-bold"><span class="fas fa-dollar-sign"></span>$16.80</p> 
+                                                        </div> 
+                                                        <div class="btn btn-primary mt-2">
+                                                              <a asp-controller="Home" asp-action="UserVisaInformation"> Buy</a>
+                                                        </div> 
+                                                    </div> 
+                                        </div> 
+                                    </div> 
+                                </form> 
+                        </div> 
+                    </div> 
+</div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

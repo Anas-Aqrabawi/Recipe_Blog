@@ -1,0 +1,47 @@
+﻿@model RecipeBlogProject.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="content-container">
+    <div class="row">
+        <div class="w-100">
+            <h4>@Model.Categoryname</h4>
+            <form asp-action="CategoryDetails">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row form-container">
+                    <div class="form-group col-4">
+                        <label asp-for="Categoryname" class="control-label"></label>
+                        <input asp-for="Categoryname" class="form-control" />
+                        <span asp-validation-for="Categoryname" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check col-4 mt-4">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                        </label>
+                    </div>
+              </div>
+                <input type="hidden" asp-for="id" />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+
+            <div>
+                <a asp-action="Categories">Back to List</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
